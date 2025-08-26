@@ -17,7 +17,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   // Reporter to use
-  reporter: 'html',
+  reporter: [['html'], ['github'], ['list']],
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
@@ -53,7 +53,7 @@ export default defineConfig({
   // Run your local dev server before starting the tests.
   webServer: {
     command: 'echo Launching!',
-    url: 'https://cwberry.com',
+    url: 'https://www.cwberry.com',
     reuseExistingServer: true,
   },
 });

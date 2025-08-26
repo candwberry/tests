@@ -10,8 +10,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: 
           cache: 'npm'
-      - run: npm ci && npm install -g @lhci/cli
-      - run: lhci autorun
+          node-version: '22'
+      - run: npm ci
+      - run: npx -y lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
@@ -22,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: 
           cache: 'npm'
+          node-version: '22'
       - run: npm ci 
       - run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install --with-deps
       - run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright test
