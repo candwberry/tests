@@ -15,9 +15,10 @@ They run using **GitHub Actions**.
 
 ## How to Use
 
-1. Click to this [link](https://github.com/candwberry/tests/actions/workflows/workflow.yml).  
-2. Click **Run workflow** to start the tests.
-3. Reload the page until you see the new workflow run with an orange spinner.
+1. Go to the **Actions** tab.
+2. Select the action you want to run (*Playwright Tests* or *Lighthouse CI*).
+3. Click the **Run workflow** button.
+4. Refresh the page.
 
 ### Results
 - **Playwright**: Test results appear in the workflow summary, with a detailed **HTML report** downloadable as an artifact.  
