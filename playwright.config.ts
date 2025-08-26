@@ -54,6 +54,6 @@ export default defineConfig({
   webServer: {
     command: 'echo Launching!',
     url: 'https://cwberry.com',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
   },
 });
