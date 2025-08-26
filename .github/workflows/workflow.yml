@@ -11,7 +11,7 @@ jobs:
       #  with: 
       #    cache: 'npm'
       #    node-version: '22'
-      - run: npm ci && npm install -g @lhci/cli
+      - run: npm ci # && npm install -g @lhci/cli
       - run: lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
