@@ -19,6 +19,8 @@ export default defineConfig({
   // Reporter to use
   reporter: [['html'], ['github'], ['list']],
 
+  timeout: 60 * 1000, // 60 seconds
+
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
     baseURL: 'https://www.cwberry.com',
