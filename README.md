@@ -1,6 +1,5 @@
-[![Lighthouse CI](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml/badge.svg)](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml)
-
 [![Playwright Tests](https://github.com/candwberry/tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/candwberry/tests/actions/workflows/playwright.yml)
+[![Lighthouse CI](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml/badge.svg)](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml)
 
 # cwberry.com Tests
 
