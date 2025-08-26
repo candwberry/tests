@@ -1,3 +1,7 @@
+[![Lighthouse CI](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml/badge.svg)](https://github.com/candwberry/tests/actions/workflows/lighthouseci.yml)
+
+[![Playwright Tests](https://github.com/candwberry/tests/actions/workflows/playwright.yml/badge.svg)](https://github.com/candwberry/tests/actions/workflows/playwright.yml)
+
 # cwberry.com Tests
 
 This repository contains automated tests for [www.cwberry.com](https://www.cwberry.com).  
