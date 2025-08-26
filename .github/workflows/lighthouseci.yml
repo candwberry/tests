@@ -1,0 +1,17 @@
+name: Lighthouse CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v5
+      #- uses: actions/setup-node@v4
+      #  with: 
+      #    cache: 'npm'
+      #    node-version: '22'
+      - run: npm ci # && npm install -g @lhci/cli
+      - run: lhci autorun
+        #env:
+        #  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
