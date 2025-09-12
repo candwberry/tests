@@ -5,6 +5,10 @@ on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: self-hosted
+    strategy:
+      matrix:
+        preset: [mobile, desktop]
+
     steps:
       - uses: actions/checkout@v5
       #- uses: actions/setup-node@v4
@@ -12,6 +16,10 @@ jobs:
       #    cache: 'npm'
       #    node-version: '22'
       - run: npm ci # && npm install -g @lhci/cli
-      - run: lhci autorun
+
+      - name: Run Lighthouse (${{ matrix.preset }})
+        run: |
+          lhci autorun \
+            --collect.settings.preset=${{ matrix.preset }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
