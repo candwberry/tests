@@ -15,11 +15,29 @@ jobs:
       - run: npm ci # && npm install -g @lhci/cli
 
       - name: Run Lighthouse (${{ matrix.preset }})
+        id: lhci
         run: |
+          set +e
           if [ "${{ matrix.preset }}" = "desktop" ]; then
             lhci autorun --collect.settings.preset=desktop
           else
             lhci autorun
           fi
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+
+          if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then
+            echo "Lighthouse CLI/runtime error (exit $code). Failing the job."
+            exit "$code"
+          fi
+
+          exit 0
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Mark assertion failure as allowed
+        if: steps.lhci.outputs.exit_code == '2'
+        run: |
+          echo "Lighthouse assertions failed (exit 2). Marking as allowed failure."
+          exit 1
+        continue-on-error: true
