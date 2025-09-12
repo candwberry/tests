@@ -1,10 +1,23 @@
 module.exports = {
   ci: {
     collect: {
+      numberOfRuns: 1,
       url: [
-        "https://www.cwberry.com"
+        {
+          url: "https://www.cwberry.com",
+          settings: {
+            formFactor: "mobile",
+            screenEmulation: { mobile: true, disabled: false },
+          },
+        },
+        {
+          url: "https://www.cwberry.com",
+          settings: {
+            formFactor: "desktop",
+            screenEmulation: { mobile: false, disabled: false },
+          },
+        },
       ],
-      numberOfRuns: 1
     },
     assert: {
       preset: "lighthouse:recommended"
